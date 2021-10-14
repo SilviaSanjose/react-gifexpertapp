@@ -10,7 +10,12 @@ const AddCategory = ({ setCategories }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (inputValue.trim().length > 2) {
-            setCategories((cat) => [...cat, inputValue]); //cat es el callback que sabe que corresponde a categories aunque no este pasado como propiedad
+            //opción 1 acumulando todas las categorias, la última búsqueda arriba
+            // setCategories((cat) => [inputValue, ...cat]); //cat es el callback que sabe que corresponde a categories aunque no este pasado como propiedad
+
+            //opción 2, sólo guarda/muestra la última búsqueda
+            setCategories([inputValue]);
+
             setInputValue("");
         }
     };
